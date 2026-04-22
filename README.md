@@ -1,16 +1,94 @@
-# React + Vite
+# TP05 Mini Pokédex Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada con React que permite buscar y visualizar información de Pokémon consumiendo una API pública.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## API utilizada
 
-## React Compiler
+Se utilizó la API: https://pokeapi.co/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Endpoints utilizados
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* Obtener Pokémon por nombre o ID
+  https://pokeapi.co/api/v2/pokemon/{id o nombre}
+
+* Obtener lista de Pokémon
+  https://pokeapi.co/api/v2/pokemon?limit=10
+
+* Obtener Pokémon por tipo
+  https://pokeapi.co/api/v2/type/{tipo}
+
+---
+
+## Estructura del proyecto
+
+```
+src/
+│
+├── App.jsx
+├── App.css
+├── main.jsx
+│
+├── components/
+│   ├── Header/
+│   ├── Buscador/
+│   ├── Filtros/
+│   ├── ListaPokemon/
+│   ├── PokemonCard/
+│   ├── Loader/
+│   ├── Error/
+```
+
+---
+
+## Funcionalidades
+
+* Búsqueda de Pokémon por nombre o ID
+* Visualización de:
+
+  * Nombre
+  * Imagen
+  * Tipo(s)
+  * Peso
+  * Altura
+* Filtro por tipo de Pokémon
+* Lista inicial de Pokémon
+* Indicador de carga (loading)
+* Manejo de errores
+
+---
+
+## Decisiones tomadas
+
+* Se utilizó React para estructurar la aplicación en componentes reutilizables.
+* Se centralizó la lógica en `App.jsx` para manejar el estado global.
+* Se utilizó `async/await` para simplificar el manejo de promesas.
+* Se separaron los componentes en carpetas individuales con su CSS correspondiente.
+* Se utilizó renderizado dinámico mediante `.map()` para mostrar listas.
+
+---
+
+## Dificultades encontradas
+
+* Comprender la estructura de datos (funcionamiento) de la API, especialmente en los tipos de Pokémon.
+* Manejar múltiples peticiones con `Promise.all` para obtener información detallada.
+* Implementar correctamente el flujo de datos entre componentes (props).
+* Manejar estados como loading y errores sin romper la interfaz.
+
+---
+
+## Tecnologías utilizadas
+
+* React
+* JavaScript
+* Fetch API
+* CSS
+
+---
+
+## Autores
+
+Eliel Jamilis y Morena Zalcman

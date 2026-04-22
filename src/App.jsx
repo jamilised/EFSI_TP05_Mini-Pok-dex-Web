@@ -24,11 +24,11 @@ function App() {
       setLoading(true);
       setError("");
 
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${valor}`);
+      const resultado = await fetch(`https://pokeapi.co/api/v2/pokemon/${valor}`);
 
-      if (!res.ok) throw new Error("No existe");
+      if (!resultado.ok) throw new Error("No existe");
 
-      const data = await res.json();
+      const data = await resultado.json();
 
       setLista([data]);
     } catch (err) {
@@ -42,15 +42,15 @@ function App() {
   const obtenerLista = async () => {
     try {
       setLoading(true);
-      const res = await fetch(
+      const resultado = await fetch(
         "https://pokeapi.co/api/v2/pokemon?limit=10"
       );
-      const data = await res.json();
+      const data = await resultado.json();
 
       const detalles = await Promise.all(
         data.results.map(async (p) => {
-          const res = await fetch(p.url);
-          return await res.json();
+          const resultado = await fetch(p.url);
+          return await resultado.json();
         })
       );
 
@@ -67,17 +67,17 @@ function App() {
 
     try {
       setLoading(true);
-      const res = await fetch(
+      const resultado = await fetch(
         `https://pokeapi.co/api/v2/type/${tipo}`
       );
-      const data = await res.json();
+      const data = await resultado.json();
 
       const pokemons = data.pokemon.slice(0, 10);
 
       const detalles = await Promise.all(
         pokemons.map(async (p) => {
-          const res = await fetch(p.pokemon.url);
-          return await res.json();
+          const resultado = await fetch(p.pokemon.url);
+          return await resultado.json();
         })
       );
 
@@ -97,7 +97,7 @@ function App() {
         <Buscador buscarPokemon={buscarPokemon} />
         <Filtros filtrarPorTipo={filtrarPorTipo} />
 
-        <button onClick={obtenerLista}>Cargar lista 'Primeros 10' </button>
+        <button onClick={obtenerLista}>Cargar lista 'Primeros 10'</button>
 
         {loading && <Loader />}
         {error && <Error mensaje={error} />}
