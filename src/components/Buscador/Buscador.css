@@ -1,0 +1,13 @@
+.buscador {
+  margin: 20px 0;
+}
+
+.buscador input {
+  padding: 10px;
+  width: 60%;
+}
+
+.buscador button {
+  padding: 10px;
+  margin-left: 10px;
+}
