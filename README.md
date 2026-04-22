@@ -74,7 +74,6 @@ src/
 ## Dificultades encontradas
 
 * Comprender la estructura de datos (funcionamiento) de la API, especialmente en los tipos de Pokémon.
-* Manejar múltiples peticiones con `Promise.all` para obtener información detallada.
 * Implementar correctamente el flujo de datos entre componentes (props).
 * Manejar estados como loading y errores sin romper la interfaz.
 
